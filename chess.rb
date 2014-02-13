@@ -8,7 +8,7 @@
 
 class Board
 	def initialize 
-	@chess_board =   [[nil,"P",nil,nil,nil,nil,nil,nil],
+	@chess_board =   [[nil,nil,nil,nil,nil,nil,nil,nil],
 								   [nil,nil,nil,nil,nil,nil,nil,nil],
 		               [nil,nil,nil,nil,nil,nil,nil,nil],
 	                 [nil,nil,nil,nil,nil,nil,nil,nil],
@@ -36,19 +36,76 @@ class Board
 	 	puts "==============================="
 	 	puts "| #{@chess_board[7][0]} | #{@chess_board[7][1]} | #{@chess_board[7][2]} | #{@chess_board[7][3]} | #{@chess_board[7][4]} | #{@chess_board[7][5]} | #{@chess_board[7][6]} | #{@chess_board[3][7]} |"
 		end
+
+		def insert(x,y,value)
+		@chess_board[x][y] = value
+	  end
+
+	  def get(x,y)
+		@chess_board[x][y] = nil
+		end
+
+		def populate
+		@board.insert(0,0,wp0)
+		@board.insert(0,1,wp1)
+		@board.insert(0,2,wp2)
+		@board.insert(0,3,wp3)
+		@board.insert(0,4,wp4)
+		@board.insert(0,5,wp5)
+		@board.insert(0,6,wp6)
+		@board.insert(0,7,wp7)
+		@board.insert(7,0,bp0)
+		@board.insert(7,1,bp1)
+		@board.insert(7,2,bp2)
+		@board.insert(7,3,bp3)
+		@board.insert(7,4,bp4)
+		@board.insert(7,5,bp5)
+		@board.insert(7,6,bp6)
+		@board.insert(7,7,bp7)
+	end
 end
 
-class Pawn
+class Piece 
 end
 
-class White_pawn < Pawn
+class WhitePawn < Piece
 	def to_s
 		"WP"
 	end
 end
 
-class Black_pawn < Pawn
+class BlackPawn < Piece
 	def to_s
 		"BP"
 	end
 end
+
+
+
+class Game
+ 	def initialize 
+ 	 @board = Board.new
+ 	 @in_progress = true
+ 	 wp0 = WhitePawn.new
+ 	 wp1 = WhitePawn.new
+ 	 wp2 = WhitePawn.new
+ 	 wp3 = WhitePawn.new
+ 	 wp4 = WhitePawn.new
+ 	 wp5 = WhitePawn.new
+ 	 wp6 = WhitePawn.new
+ 	 wp7 = WhitePawn.new
+ 	 bp0 = BlackPawn.new
+ 	 bp1 = BlackPawn.new
+ 	 bp2 = BlackPawn.new
+ 	 bp3 = BlackPawn.new
+ 	 bp4 = BlackPawn.new
+ 	 bp5 = BlackPawn.new
+ 	 bp6 = BlackPawn.new
+ 	 bp7 = BlackPawn.new
+ 	 @populate
+ 	end
+
+
+end
+
+
